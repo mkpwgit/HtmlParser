@@ -2,6 +2,7 @@ package org.htmlparser.process;
 
 
 import org.htmlparser.filereader.HtmlReader;
+import org.htmlparser.tag.Tags;
 
 public class OpeningTagState implements State{
 

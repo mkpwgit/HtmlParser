@@ -27,7 +27,7 @@ public class Main {
         HtmlReader htmlReader = new HtmlReader("/home/mikalai/testHtml.html");
 
         htmlReader.read();
-        System.out.println(Tags.valueOf("html"));
+        System.out.println(Tags.isElement("htmla"));
 
 
     }
