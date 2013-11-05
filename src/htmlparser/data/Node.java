@@ -8,14 +8,31 @@ public class Node {
     private Node parent;
     private List<Node> children;
     private String name;
+    private StringBuilder value;
 
     public Node() {
 
     }
 
-    public Node(Node parent, String name) {
-        this.parent = parent;
+    public Node(String name) {
         this.name = name;
         this.children = new ArrayList<Node>();
+        this.value = new StringBuilder();
+    }
+
+    public void addValue(String value) {
+        this.value.append(value);
+    }
+
+    public List<Node> getChildren() {
+        return children;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
 }
