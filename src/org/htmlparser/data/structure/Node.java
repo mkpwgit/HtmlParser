@@ -20,7 +20,7 @@ public class Node {
         this.value = new StringBuilder();
     }
 
-    public void addValue(String value) {
+    public void addValue(StringBuilder value) {
         this.value.append(value);
     }
 

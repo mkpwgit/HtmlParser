@@ -11,17 +11,27 @@ public class Tree {
         this.currentNode = head;
     }
 
+    public Tree() {
+
+    }
+
     public void addChild(Node node) {
-        node.setParent(currentNode);
-        currentNode.getChildren().add(node);
-        currentNode = node;
+        if (head == null) {
+            node.setParent(null);
+            head = node;
+            currentNode = head;
+        } else {
+            node.setParent(currentNode);
+            currentNode.getChildren().add(node);
+            currentNode = node;
+        }
     }
 
     public void changeCurrentNode() {
         currentNode = currentNode.getParent();
     }
 
-    public void addValue(String value) {
+    public void addValue(StringBuilder value) {
         currentNode.addValue(value);
     }
 }

@@ -12,22 +12,23 @@ public class Main {
         Node node2 = new Node("body");
         Node node3 = new Node("head");
 
-        Tree tree = new Tree(node);
+       /* Tree tree = new Tree(node);
 
         tree.addChild(node2);
-        tree.addValue("new body");
+        tree.addValue(new StringBuilder("new body"));
 
         tree.changeCurrentNode();
 
         tree.addChild(node3);
-        tree.addValue("new head");
+        tree.addValue(new StringBuilder("new head"));*/
 
 //        System.out.println();
 
-        HtmlReader htmlReader = new HtmlReader("/home/mikalai/testHtml.html");
+        System.out.println(Tags.isElement("html"));
+        HtmlReader htmlReader = new HtmlReader("test.html");
 
         htmlReader.read();
-        System.out.println(Tags.isElement("htmla"));
+        System.out.println("hello");
 
 
     }

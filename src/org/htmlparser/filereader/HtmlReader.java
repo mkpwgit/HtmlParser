@@ -1,5 +1,6 @@
 package org.htmlparser.filereader;
 
+import org.htmlparser.data.structure.Tree;
 import org.htmlparser.process.State;
 import org.htmlparser.process.TextState;
 
@@ -11,6 +12,7 @@ public class HtmlReader {
 
     private FileReader fileReader;
     private State currentState;
+    private Tree tree;
 
     public HtmlReader(String fileName) {
         try {
@@ -18,7 +20,8 @@ public class HtmlReader {
         } catch (FileNotFoundException e) {
             new IllegalArgumentException("File not found exception. Parameter fileName is not correct");
         }
-        currentState = new TextState(this);
+        tree = new Tree();
+        currentState = new TextState(this, tree);
     }
 
     public void read() {
