@@ -29,7 +29,8 @@ public class TextState implements State {
                 e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
             }
         } else {
-            text.append(c);
+            if (c != '\n')
+                text.append(c);
         }
     }
 }

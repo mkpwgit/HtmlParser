@@ -3,6 +3,7 @@ package org.htmlparser;
 import org.htmlparser.data.structure.Node;
 import org.htmlparser.data.structure.Tree;
 import org.htmlparser.filereader.HtmlReader;
+import org.htmlparser.tag.Tags;
 
 public class Main {
 
@@ -26,6 +27,7 @@ public class Main {
         HtmlReader htmlReader = new HtmlReader("/home/mikalai/testHtml.html");
 
         htmlReader.read();
+        System.out.println(Tags.valueOf("html"));
 
 
     }

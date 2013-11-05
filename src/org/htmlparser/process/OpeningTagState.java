@@ -22,6 +22,7 @@ public class OpeningTagState implements State{
     public void process(char c) {
         if (c == '>') {
             System.out.println(tag + " opening tag");
+
             htmlReader.setState(new TextState(htmlReader));
         } else {
             tag.append(c);
