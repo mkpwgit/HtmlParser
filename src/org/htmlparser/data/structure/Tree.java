@@ -1,4 +1,4 @@
-package htmlparser.data;
+package org.htmlparser.data.structure;
 
 public class Tree {
 

@@ -1,5 +1,8 @@
-import htmlparser.data.Node;
-import htmlparser.data.Tree;
+package org.htmlparser;
+
+import org.htmlparser.data.structure.Node;
+import org.htmlparser.data.structure.Tree;
+import org.htmlparser.filereader.HtmlReader;
 
 public class Main {
 
@@ -18,9 +21,11 @@ public class Main {
         tree.addChild(node3);
         tree.addValue("new head");
 
-        System.out.println();
+//        System.out.println();
 
+        HtmlReader htmlReader = new HtmlReader("/home/mikalai/testHtml.html");
 
+        htmlReader.read();
 
 
     }
