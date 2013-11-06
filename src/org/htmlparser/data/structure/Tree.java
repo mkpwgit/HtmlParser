@@ -2,7 +2,11 @@ package org.htmlparser.data.structure;
 
 import org.htmlparser.client.Command;
 
+import java.util.List;
+
 public class Tree {
+
+    private final String TAG_IS_NOT_FOUND = "Тег не был найден";
 
     private Node head;
     private Node currentNode;
@@ -46,6 +50,16 @@ public class Tree {
             }
         }
         return false;
+    }
+
+    public String getValueByTag(List<Command> commands) {
+        updateTree();
+        for (int i=1; i<commands.size(); i++) {
+            if (!findNode(commands.get(i)))
+                return TAG_IS_NOT_FOUND;
+        }
+        return getValue();
+
     }
 
     public String getValue() {

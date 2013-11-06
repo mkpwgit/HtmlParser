@@ -38,12 +38,13 @@ public class CommandProcessing {
         tree.updateTree();
         List<Command> commands = createCommands(text);
         String tagValue = EMPTY_TAG_VALUE;
-        if (commands.get(0).getName().equals("html")) {
+        tagValue = tree.getValueByTag(commands);
+       /* if (commands.get(0).getName().equals("html")) {
             for (int i = 1; i < commands.size(); i++) {
                 tree.findNode(commands.get(i));
             }
             tagValue = tree.getValue();
-        }
+        }*/
         return tagValue;
     }
 }
