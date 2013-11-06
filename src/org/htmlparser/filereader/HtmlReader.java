@@ -46,4 +46,8 @@ public class HtmlReader {
     public FileReader getFileReader() {
         return fileReader;
     }
+
+    public Tree getTree() {
+        return tree;
+    }
 }

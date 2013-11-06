@@ -1,5 +1,7 @@
 package org.htmlparser.data.structure;
 
+import org.htmlparser.client.Command;
+
 public class Tree {
 
     private Node head;
@@ -33,5 +35,24 @@ public class Tree {
 
     public void addValue(StringBuilder value) {
         currentNode.addValue(value);
+    }
+
+    public boolean findNode(Command command) {
+        int currentNumber = command.getNumber();
+        for (Node node: currentNode.getChildren()) {
+            if (node.getName().equals(command.getName()) && currentNumber--==1) {
+                currentNode = node;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getValue() {
+        return new String(currentNode.getValue());
+    }
+
+    public void updateTree() {
+        currentNode = head;
     }
 }

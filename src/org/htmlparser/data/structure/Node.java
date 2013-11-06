@@ -35,4 +35,12 @@ public class Node {
     public void setParent(Node parent) {
         this.parent = parent;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public StringBuilder getValue() {
+        return value;
+    }
 }
