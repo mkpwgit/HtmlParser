@@ -35,6 +35,8 @@ public class CommandProcessing {
     }
 
     public String getTagValue(String text) {
+        //remove first slash
+        text = text.substring(1, text.length());
         tree.updateTree();
         List<Command> commands = createCommands(text);
         String tagValue = EMPTY_TAG_VALUE;
