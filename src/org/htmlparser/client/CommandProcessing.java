@@ -7,8 +7,6 @@ import java.util.List;
 
 public class CommandProcessing {
 
-    private final String EMPTY_TAG_VALUE = "Текстовое содержимое отсутствует";
-
     private Tree tree;
 
     public CommandProcessing(Tree tree) {
@@ -37,16 +35,8 @@ public class CommandProcessing {
     public String getTagValue(String text) {
         //remove first slash
         text = text.substring(1, text.length());
-        tree.updateTree();
         List<Command> commands = createCommands(text);
-        String tagValue = EMPTY_TAG_VALUE;
-        tagValue = tree.getValueByTag(commands);
-       /* if (commands.get(0).getName().equals("html")) {
-            for (int i = 1; i < commands.size(); i++) {
-                tree.findNode(commands.get(i));
-            }
-            tagValue = tree.getValue();
-        }*/
+        String tagValue = tree.getValueByTag(commands);
         return tagValue;
     }
 }

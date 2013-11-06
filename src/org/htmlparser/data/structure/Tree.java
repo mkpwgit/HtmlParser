@@ -7,6 +7,7 @@ import java.util.List;
 public class Tree {
 
     private final String TAG_IS_NOT_FOUND = "Тег не был найден";
+    private final String EMPTY_TAG_VALUE = "Текстовое содержимое отсутствует";
 
     private Node head;
     private Node currentNode;
@@ -58,8 +59,11 @@ public class Tree {
             if (!findNode(commands.get(i)))
                 return TAG_IS_NOT_FOUND;
         }
-        return getValue();
-
+        String result = getValue();
+        if (result.isEmpty())
+            return EMPTY_TAG_VALUE;
+        else
+            return result;
     }
 
     public String getValue() {
