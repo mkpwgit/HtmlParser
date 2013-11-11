@@ -32,11 +32,10 @@ public class CommandProcessing {
         return commands;
     }
 
-    public String getTagValue(String text) {
+    public Answer getTagValue(String text) {
         //remove first slash
         text = text.substring(1, text.length());
         List<Command> commands = createCommands(text);
-        String tagValue = tree.getValueByTag(commands);
-        return tagValue;
+        return tree.getValueByTag(commands);
     }
 }
