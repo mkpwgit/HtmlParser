@@ -4,11 +4,12 @@ import org.htmlparser.common.Constants;
 import org.htmlparser.data.structure.Tree;
 import org.htmlparser.filereader.HtmlReader;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Terminal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         boolean isFileOpen = true;
         Scanner sc = null;

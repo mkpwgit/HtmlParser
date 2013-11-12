@@ -23,6 +23,8 @@ public class ClosingTagState implements State {
                 tree.changeCurrentNode();
                 htmlReader.setState(new TextState(htmlReader, tree));
             } else {
+                tag.insert(0, "</");
+                tag.append('>');
                 htmlReader.setState(new TextState(htmlReader, tree, tag));
             }
         } else {

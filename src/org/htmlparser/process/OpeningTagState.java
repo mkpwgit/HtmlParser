@@ -6,7 +6,7 @@ import org.htmlparser.data.structure.Tree;
 import org.htmlparser.filereader.HtmlReader;
 import org.htmlparser.tag.Tags;
 
-public class OpeningTagState implements State{
+public class OpeningTagState implements State {
 
     private Tree tree;
     private HtmlReader htmlReader;
@@ -31,10 +31,20 @@ public class OpeningTagState implements State{
                 tree.addChild(new Node(new String(tag)));
                 htmlReader.setState(new TextState(htmlReader, tree));
             } else {
+                tag.insert(0, '<');
+                tag.append('>');
                 htmlReader.setState(new TextState(htmlReader, tree, tag));
+            }
+        } else if (c == ' ') {
+            if (Tags.isElement(new String(tag))) {
+                tree.addChild(new Node(new String(tag)));
+                htmlReader.setState(new IgnoredState(htmlReader, tree));
+            } else {
+                tag.append(c);
             }
         } else {
             tag.append(c);
         }
     }
+
 }
