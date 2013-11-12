@@ -26,9 +26,9 @@ public class Terminal {
             String textCommand = sc.next();
             if (textCommand.equalsIgnoreCase(Constants.EXIT) || textCommand.equalsIgnoreCase(Constants.QUIT))
                 break;
-            Answer answer = commandProcessing.getTagValue(textCommand);
+            Answer answer = commandProcessing.getAnswerOnCommands(textCommand);
             answer.print();
-            System.out.println(Tree.tags);
+//            System.out.println(Tree.tags);
         }
 
 

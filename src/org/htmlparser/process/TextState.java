@@ -28,7 +28,7 @@ public class TextState implements State {
         if (c == '<') {
             System.out.println(text + " text "+text.length());
             if (text.length()>0)
-                tree.addValue(text);
+                tree.addTextValue(text);
             try {
                 char nextSymbol = (char) htmlReader.getFileReader().read();
                 if (nextSymbol == '/') {

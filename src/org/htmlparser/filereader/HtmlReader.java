@@ -1,6 +1,7 @@
 package org.htmlparser.filereader;
 
 import org.htmlparser.data.structure.Tree;
+import org.htmlparser.data.structure.TreeImpl;
 import org.htmlparser.process.State;
 import org.htmlparser.process.TextState;
 
@@ -20,7 +21,7 @@ public class HtmlReader {
         } catch (FileNotFoundException e) {
             new IllegalArgumentException("File not found exception. Parameter fileName is not correct");
         }
-        tree = new Tree();
+        tree = new TreeImpl();
         currentState = new TextState(this, tree);
     }
 
