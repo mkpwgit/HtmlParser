@@ -39,4 +39,12 @@ public class Command {
     public void setNumber(int number) {
         this.number = number;
     }
+
+    @Override
+    public String toString() {
+        return "Command{" +
+                "name='" + name + '\'' +
+                ", number=" + number +
+                '}';
+    }
 }
