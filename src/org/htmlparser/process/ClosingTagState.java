@@ -19,7 +19,6 @@ public class ClosingTagState implements State {
     @Override
     public void process(char c) {
         if (c == '>') {
-            System.out.println(tag + " close tag");
             if (Tags.isElement(new String(tag))) {
                 tree.changeCurrentNode();
                 htmlReader.setState(new TextState(htmlReader, tree));

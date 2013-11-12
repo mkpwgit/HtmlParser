@@ -10,27 +10,49 @@ public class Terminal {
 
     public static void main(String[] args) {
 
+        boolean isFileOpen = true;
+        Scanner sc = null;
+        HtmlReader htmlReader = null;
+
         System.out.println("Терминал запущен.");
-        System.out.print("Введите путь к файлу html: ");
 
-        Scanner sc = new Scanner(System.in);
-        String pathToFile = sc.next();
+        //process file
+        do {
+            System.out.print("Введите путь к файлу html: ");
 
-        HtmlReader htmlReader = new HtmlReader(pathToFile);
-        htmlReader.read();
+            try {
+                sc = new Scanner(System.in);
+                String pathToFile = sc.next();
 
+                htmlReader = new HtmlReader(pathToFile);
+                htmlReader.read();
+                isFileOpen = true;
+            } catch (Exception e) {
+                System.out.println("Проблема с чтением файла. Попробуйте повторить ввод пути к файлу.");
+                isFileOpen = false;
+            }
+
+        } while (!isFileOpen);
+
+
+        //process commands
         CommandProcessing commandProcessing = new CommandProcessing(htmlReader.getTree());
 
         while (true) {
             System.out.print("Введите команду: ");
-            String textCommand = sc.next();
-            if (textCommand.equalsIgnoreCase(Constants.EXIT) || textCommand.equalsIgnoreCase(Constants.QUIT))
-                break;
-            Answer answer = commandProcessing.getAnswerOnCommands(textCommand);
-            answer.print();
-//            System.out.println(Tree.tags);
+            try {
+                String textCommand = sc.next();
+                if (textCommand.equalsIgnoreCase(Constants.EXIT) || textCommand.equalsIgnoreCase(Constants.QUIT))
+                    break;
+                Answer answer = null;
+
+                answer = commandProcessing.getAnswerOnCommands(textCommand);
+                answer.print();
+            } catch (Exception e) {
+                System.out.println("Неправильная команда!");
+            }
         }
 
-
     }
+
 }

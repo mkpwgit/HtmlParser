@@ -26,7 +26,6 @@ public class CommandProcessing {
             } else {
                 command = new Command(name);
             }
-
             commands.add(command);
         }
         return commands;

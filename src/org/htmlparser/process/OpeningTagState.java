@@ -27,7 +27,6 @@ public class OpeningTagState implements State{
     @Override
     public void process(char c) {
         if (c == '>') {
-            System.out.println(tag + " opening tag");
             if (Tags.isElement(new String(tag))) {
                 tree.addChild(new Node(new String(tag)));
                 htmlReader.setState(new TextState(htmlReader, tree));

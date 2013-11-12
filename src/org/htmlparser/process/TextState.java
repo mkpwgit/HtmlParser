@@ -24,23 +24,18 @@ public class TextState implements State {
     }
 
     @Override
-    public void process(char c) {
+    public void process(char c) throws IOException {
         if (c == '<') {
-            System.out.println(text + " text "+text.length());
-            if (text.length()>0)
+            if (text.length() > 0)
                 tree.addTextValue(text);
-            try {
-                char nextSymbol = (char) htmlReader.getFileReader().read();
-                if (nextSymbol == '/') {
-                    htmlReader.setState(new ClosingTagState(htmlReader, tree));
-                } else {
-                    htmlReader.setState(new OpeningTagState(htmlReader, nextSymbol, tree));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            char nextSymbol = (char) htmlReader.getFileReader().read();
+            if (nextSymbol == '/') {
+                htmlReader.setState(new ClosingTagState(htmlReader, tree));
+            } else {
+                htmlReader.setState(new OpeningTagState(htmlReader, nextSymbol, tree));
             }
         } else {
-            if (c != '\n' && c!= '\r')
+            if (c != '\n' && c != '\r')
                 text.append(c);
         }
     }
