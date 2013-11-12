@@ -1,7 +1,7 @@
 package org.htmlparser.data.structure;
 
-import org.htmlparser.client.Answer;
-import org.htmlparser.client.Command;
+import org.htmlparser.commandprocessing.Answer;
+import org.htmlparser.commandprocessing.Command;
 
 import java.util.List;
 

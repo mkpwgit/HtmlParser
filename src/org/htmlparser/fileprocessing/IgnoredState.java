@@ -1,8 +1,7 @@
-package org.htmlparser.process;
+package org.htmlparser.fileprocessing;
 
 
 import org.htmlparser.data.structure.Tree;
-import org.htmlparser.filereader.HtmlReader;
 
 import java.io.IOException;
 

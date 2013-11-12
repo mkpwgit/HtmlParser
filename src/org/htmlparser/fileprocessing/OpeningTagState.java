@@ -1,9 +1,8 @@
-package org.htmlparser.process;
+package org.htmlparser.fileprocessing;
 
 
 import org.htmlparser.data.structure.Node;
 import org.htmlparser.data.structure.Tree;
-import org.htmlparser.filereader.HtmlReader;
 import org.htmlparser.tag.Tags;
 
 public class OpeningTagState implements State {

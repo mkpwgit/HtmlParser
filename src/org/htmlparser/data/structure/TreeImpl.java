@@ -1,11 +1,9 @@
 package org.htmlparser.data.structure;
 
-import org.htmlparser.client.Answer;
-import org.htmlparser.client.Command;
+import org.htmlparser.commandprocessing.Answer;
+import org.htmlparser.commandprocessing.Command;
 import org.htmlparser.common.Constants;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class TreeImpl implements Tree{

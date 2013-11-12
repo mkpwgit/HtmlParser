@@ -1,8 +1,9 @@
 package org.htmlparser.client;
 
+import org.htmlparser.commandprocessing.Answer;
+import org.htmlparser.commandprocessing.CommandProcessing;
 import org.htmlparser.common.Constants;
-import org.htmlparser.data.structure.Tree;
-import org.htmlparser.filereader.HtmlReader;
+import org.htmlparser.fileprocessing.HtmlReader;
 
 import java.io.IOException;
 import java.util.Scanner;

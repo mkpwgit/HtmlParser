@@ -1,4 +1,4 @@
-package org.htmlparser.client;
+package org.htmlparser.commandprocessing;
 
 
 import org.htmlparser.common.Constants;

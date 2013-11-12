@@ -1,9 +1,7 @@
-package org.htmlparser.filereader;
+package org.htmlparser.fileprocessing;
 
 import org.htmlparser.data.structure.Tree;
 import org.htmlparser.data.structure.TreeImpl;
-import org.htmlparser.process.State;
-import org.htmlparser.process.TextState;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

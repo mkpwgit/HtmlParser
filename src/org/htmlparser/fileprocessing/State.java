@@ -1,4 +1,4 @@
-package org.htmlparser.process;
+package org.htmlparser.fileprocessing;
 
 
 import java.io.IOException;
