@@ -67,7 +67,7 @@ public class TreeImpl implements Tree{
         } else {
             if (resultText.length() > 60)
                 resultText = resultText.substring(0, 60);
-            return new Answer(tagsString.toString(), resultText);
+            return new Answer(new String(tagsString), resultText);
         }
     }
 

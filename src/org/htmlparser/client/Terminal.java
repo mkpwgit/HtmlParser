@@ -36,6 +36,7 @@ public class Terminal {
 
         } while (!isFileOpen);
 
+        System.out.println("Файл обработан.");
 
         //process commands
         CommandProcessing commandProcessing = new CommandProcessing(htmlReader.getTree());

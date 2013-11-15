@@ -18,12 +18,15 @@ public class Answer {
     }
 
     public void print() {
+        //print information about tags
         if (innerTagsString != null)
             if (innerTagsString.isEmpty()) {
                 System.out.println(Constants.INNER_TAGS_ARE_NOT_FOUND);
             } else
-                System.out.println("Вложенные теги: " + innerTagsString);
-        if (text.length()==0)
+                System.out.println(Constants.INNER_TAGS + innerTagsString);
+
+        //print tag's value
+        if (text.isEmpty())
             text=Constants.EMPTY_TAG_VALUE;
         System.out.println(text);
     }

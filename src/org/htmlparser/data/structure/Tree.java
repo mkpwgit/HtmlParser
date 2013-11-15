@@ -19,7 +19,7 @@ public interface Tree {
     public void addChild(Node node);
 
     /**
-     * Change current node. Now current node is the parent of the previous current node.
+     * Change current node. After that current node is the parent of the previous current node.
      *
      */
     public void changeCurrentNode();
