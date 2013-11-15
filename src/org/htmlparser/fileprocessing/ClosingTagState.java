@@ -18,7 +18,8 @@ public class ClosingTagState implements State {
     @Override
     public void process(char c) {
         if (c == '>') {
-            if (Tags.isElement(new String(tag))) {
+            String resTag = new String(tag).trim();
+            if (Tags.isElement(resTag)) {
                 tree.changeCurrentNode();
                 htmlReader.setState(new TextState(htmlReader, tree));
             } else {
