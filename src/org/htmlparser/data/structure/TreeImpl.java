@@ -54,16 +54,18 @@ public class TreeImpl implements Tree{
 
     public Answer getAnswerOnCommands(List<Command> commands) {
         updateTree();
+        //find node and make it current
         for (int i = 1; i < commands.size(); i++) {
             if (!findNode(commands.get(i))) {
                 return new Answer(Constants.TAG_IS_NOT_FOUND);
             }
         }
+        //get text value and inner tags of current node
         String resultText = getTextValue();
         StringBuilder tagsString = new StringBuilder();
         getInnerTags(currentNode, tagsString);
         if (resultText.isEmpty()) {
-            return new Answer(tagsString.toString(), Constants.EMPTY_TAG_VALUE);
+            return new Answer(new String(tagsString), Constants.EMPTY_TAG_VALUE);
         } else {
             if (resultText.length() > 60)
                 resultText = resultText.substring(0, 60);

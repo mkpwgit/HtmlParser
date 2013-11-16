@@ -16,11 +16,12 @@ public class Terminal {
         Scanner sc = null;
         HtmlReader htmlReader = null;
 
-        System.out.println("Терминал запущен.");
+        System.out.println(Constants.TERMINAL_RUN);
+        System.out.println(Constants.HELP);
 
         //process file
         do {
-            System.out.print("Введите путь к файлу html: ");
+            System.out.print(Constants.ENTER_FILE_PATH);
 
             try {
                 sc = new Scanner(System.in);
@@ -30,19 +31,19 @@ public class Terminal {
                 htmlReader.read();
                 isFileOpen = true;
             } catch (Exception e) {
-                System.out.println("Проблема с чтением файла. Попробуйте повторить ввод пути к файлу.");
+                System.out.println(Constants.ERROR_FILE_READING);
                 isFileOpen = false;
             }
 
         } while (!isFileOpen);
 
-        System.out.println("Файл обработан.");
+        System.out.println(Constants.FILE_PROCESSING_FINISH);
 
         //process commands
         CommandProcessing commandProcessing = new CommandProcessing(htmlReader.getTree());
 
         while (true) {
-            System.out.print("Введите команду: ");
+            System.out.print(Constants.ENTER_COMMAND);
             try {
                 String textCommand = sc.next();
                 if (textCommand.equalsIgnoreCase(Constants.EXIT) || textCommand.equalsIgnoreCase(Constants.QUIT))
@@ -52,10 +53,9 @@ public class Terminal {
                 answer = commandProcessing.getAnswerOnCommands(textCommand);
                 answer.print();
             } catch (Exception e) {
-                System.out.println("Неправильная команда!");
+                System.out.println(Constants.WRONG_COMMAND);
             }
         }
 
     }
-
 }

@@ -12,7 +12,7 @@ import java.util.List;
 public interface Tree {
 
     /**
-     * Add child for the current node.
+     * Add child for the current node and make it current.
      *
      * @param node Tree node
      */

@@ -13,6 +13,7 @@ public class CommandProcessing {
         this.tree = tree;
     }
 
+    //html[1, html[1]] - these commands are normal.
     private ArrayList<Command> createCommands(String text) throws Exception {
         ArrayList<Command> commands = new ArrayList<Command>();
         String[] textCommands = text.split("/");
@@ -43,6 +44,12 @@ public class CommandProcessing {
         return tree.getAnswerOnCommands(commands);
     }
 
+    /**
+     * Check first command. It is should be html or html[1].
+     *
+     * @param commands
+     * @throws Exception
+     */
     public void checkCommands(List<Command> commands) throws Exception {
         Command firstCommand = commands.get(0);
         if (!firstCommand.getName().equals("html")) {
@@ -50,6 +57,5 @@ public class CommandProcessing {
         } else if (firstCommand.getNumber() != 1) {
             throw new Exception("Неправильная первая команда");
         }
-
     }
 }
