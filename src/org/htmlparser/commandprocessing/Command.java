@@ -1,4 +1,4 @@
-package org.htmlparser.client;
+package org.htmlparser.commandprocessing;
 
 public class Command {
 

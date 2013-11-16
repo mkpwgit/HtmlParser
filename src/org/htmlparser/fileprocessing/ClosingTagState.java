@@ -1,7 +1,6 @@
-package org.htmlparser.process;
+package org.htmlparser.fileprocessing;
 
 import org.htmlparser.data.structure.Tree;
-import org.htmlparser.filereader.HtmlReader;
 import org.htmlparser.tag.Tags;
 
 public class ClosingTagState implements State {
@@ -19,11 +18,15 @@ public class ClosingTagState implements State {
     @Override
     public void process(char c) {
         if (c == '>') {
-            System.out.println(tag + " close tag");
-            if (Tags.isElement(new String(tag))) {
+            //</tag  > - for this situation
+            String resTag = new String(tag).trim();
+
+            if (Tags.isElement(resTag)) {
                 tree.changeCurrentNode();
                 htmlReader.setState(new TextState(htmlReader, tree));
             } else {
+                tag.insert(0, "</");
+                tag.append('>');
                 htmlReader.setState(new TextState(htmlReader, tree, tag));
             }
         } else {

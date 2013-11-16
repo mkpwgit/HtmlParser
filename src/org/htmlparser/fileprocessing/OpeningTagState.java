@@ -1,22 +1,15 @@
-package org.htmlparser.process;
+package org.htmlparser.fileprocessing;
 
 
 import org.htmlparser.data.structure.Node;
 import org.htmlparser.data.structure.Tree;
-import org.htmlparser.filereader.HtmlReader;
 import org.htmlparser.tag.Tags;
 
-public class OpeningTagState implements State{
+public class OpeningTagState implements State {
 
     private Tree tree;
     private HtmlReader htmlReader;
     private StringBuilder tag;
-
-    public OpeningTagState(HtmlReader htmlReader, Tree tree) {
-        this.htmlReader = htmlReader;
-        this.tree = tree;
-        this.tag = new StringBuilder();
-    }
 
     public OpeningTagState(HtmlReader htmlReader, char c, Tree tree) {
         this.htmlReader = htmlReader;
@@ -27,15 +20,24 @@ public class OpeningTagState implements State{
     @Override
     public void process(char c) {
         if (c == '>') {
-            System.out.println(tag + " opening tag");
             if (Tags.isElement(new String(tag))) {
                 tree.addChild(new Node(new String(tag)));
                 htmlReader.setState(new TextState(htmlReader, tree));
             } else {
+                tag.insert(0, '<');
+                tag.append('>');
                 htmlReader.setState(new TextState(htmlReader, tree, tag));
+            }
+        } else if (c == ' ') {
+            if (Tags.isElement(new String(tag))) {
+                tree.addChild(new Node(new String(tag)));
+                htmlReader.setState(new IgnoredState(htmlReader, tree));
+            } else {
+                tag.append(c);
             }
         } else {
             tag.append(c);
         }
     }
+
 }
