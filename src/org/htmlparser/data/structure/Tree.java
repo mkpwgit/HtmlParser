@@ -13,7 +13,7 @@ public class Tree {
     private Node head;
     private Node currentNode;
 
-    public static String tags;
+    public static String tags="";
 
     public Tree(Node head) {
         head.setParent(null);
@@ -83,10 +83,12 @@ public class Tree {
 
     public String getInnerTags(Node node, String result) {
         for (Node child : node.getChildren()) {
+            result += child.getName();
             System.out.println(result);
             tags+=child.getName();
             getInnerTags(child, result);
         }
+        System.out.println(result+"==================");
         return result;
     }
 }
